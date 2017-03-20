@@ -27,8 +27,6 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
                 }
                 for tweet in tweets {
                     tweetStorage.append(tweet)
-                    print(tweet.text)
-                    print(tweet.user)
                 }
             }
         }
@@ -42,9 +40,13 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let userName = tweetStorage[indexPath.row].user?.name
         
         cell.textLabel?.text = "\(tweetStorage[indexPath.row].text)"
-        cell.detailTextLabel?.text = "\(tweetStorage[indexPath.row].user?.name)"
+        
+        if let userName = userName {
+        cell.detailTextLabel?.text = "\(userName)"
+        }
         return cell
     }
     
