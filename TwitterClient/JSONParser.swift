@@ -28,7 +28,7 @@ class JSONParser {
     
     class func tweetsFrom(data: Data, callback: JSONParserCallback) {
         do {
-            if let rootObject = try JSONSerialization.jsonObject(with: data, options:.mutableContainers) as? [[String : Any]] {
+            if let rootObject = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String : Any]] {
                 var tweets = [Tweet]()
                 
                 for tweetDictionary in rootObject {
