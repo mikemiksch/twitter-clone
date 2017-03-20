@@ -12,6 +12,9 @@
 		83FA38881E803F0100ECE433 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83FA38861E803F0100ECE433 /* Main.storyboard */; };
 		83FA388A1E803F0100ECE433 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83FA38891E803F0100ECE433 /* Assets.xcassets */; };
 		83FA388D1E803F0100ECE433 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83FA388B1E803F0100ECE433 /* LaunchScreen.storyboard */; };
+		83FA38951E8053D500ECE433 /* tweet.json in Resources */ = {isa = PBXBuildFile; fileRef = 83FA38941E8053D500ECE433 /* tweet.json */; };
+		83FA38971E80540D00ECE433 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FA38961E80540D00ECE433 /* Tweet.swift */; };
+		83FA38991E80541800ECE433 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FA38981E80541800ECE433 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		83FA38891E803F0100ECE433 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83FA388C1E803F0100ECE433 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83FA388E1E803F0100ECE433 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83FA38941E8053D500ECE433 /* tweet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tweet.json; sourceTree = "<group>"; };
+		83FA38961E80540D00ECE433 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		83FA38981E80541800ECE433 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +44,7 @@
 		83FA38761E803F0100ECE433 = {
 			isa = PBXGroup;
 			children = (
+				83FA38941E8053D500ECE433 /* tweet.json */,
 				83FA38811E803F0100ECE433 /* TwitterClient */,
 				83FA38801E803F0100ECE433 /* Products */,
 			);
@@ -60,6 +67,8 @@
 				83FA38891E803F0100ECE433 /* Assets.xcassets */,
 				83FA388B1E803F0100ECE433 /* LaunchScreen.storyboard */,
 				83FA388E1E803F0100ECE433 /* Info.plist */,
+				83FA38961E80540D00ECE433 /* Tweet.swift */,
+				83FA38981E80541800ECE433 /* User.swift */,
 			);
 			path = TwitterClient;
 			sourceTree = "<group>";
@@ -126,6 +135,7 @@
 				83FA388D1E803F0100ECE433 /* LaunchScreen.storyboard in Resources */,
 				83FA388A1E803F0100ECE433 /* Assets.xcassets in Resources */,
 				83FA38881E803F0100ECE433 /* Main.storyboard in Resources */,
+				83FA38951E8053D500ECE433 /* tweet.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +146,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83FA38991E80541800ECE433 /* User.swift in Sources */,
+				83FA38971E80540D00ECE433 /* Tweet.swift in Sources */,
 				83FA38851E803F0100ECE433 /* ViewController.swift in Sources */,
 				83FA38831E803F0100ECE433 /* AppDelegate.swift in Sources */,
 			);
@@ -297,6 +309,7 @@
 				83FA38931E803F0100ECE433 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
