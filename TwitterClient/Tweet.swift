@@ -12,7 +12,7 @@ class Tweet {
     let text : String
     let id : String
     
-    let user : User?
+    var user : User?
     
     init?(json: [String : Any]) {
         if let text = json["text"] as? String, let id = json["id_str"] as? String {
