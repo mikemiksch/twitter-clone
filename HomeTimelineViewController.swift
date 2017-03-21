@@ -12,27 +12,39 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
 
     @IBOutlet weak var tableView: UITableView!
     
-    var tweetStorage = [Tweet]()
+    var tweetStorage = [Tweet]() {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        
-        
-        JSONParser.tweetsFrom(data: JSONParser.sampleJSONData) { (success, tweets) in
-            if(success) {
-                guard let tweets = tweets else {
-                    fatalError("Tweets came back nil")
-                }
-                for tweet in tweets {
-                    tweetStorage.append(tweet)
-                }
-            }
-        }
-
+        updateTimeline()
     }
-    
+//
+//        JSONParser.tweetsFrom(data: JSONParser.sampleJSONData) { (success, tweets) in
+//            if(success) {
+//                guard let tweets = tweets else {
+//                    fatalError("Tweets came back nil")
+//                }
+//                for tweet in tweets {
+//                    tweetStorage.append(tweet)
+//                }
+//            }
+//        }
+//
+//    }
+//    
+        
+    func updateTimeline() {
+        API.shared.getTweets { (tweets) in
+            self.tweetStorage = tweets ?? []
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tweetStorage.count

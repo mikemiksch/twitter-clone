@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83DF5C8B1E819E9A0033F226 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DF5C8A1E819E9A0033F226 /* API.swift */; };
 		83ED248A1E806D1C005862C5 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83ED24891E806D1C005862C5 /* JSONParser.swift */; };
 		83FA38831E803F0100ECE433 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FA38821E803F0100ECE433 /* AppDelegate.swift */; };
 		83FA38881E803F0100ECE433 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83FA38861E803F0100ECE433 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		83DF5C8A1E819E9A0033F226 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = ../API.swift; sourceTree = "<group>"; };
 		83ED24891E806D1C005862C5 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		83FA387F1E803F0100ECE433 /* TwitterClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83FA38821E803F0100ECE433 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +48,9 @@
 		83ED248B1E806D50005862C5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				83FA38961E80540D00ECE433 /* Tweet.swift */,
+				83FA38981E80541800ECE433 /* User.swift */,
+				83ED24891E806D1C005862C5 /* JSONParser.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -60,6 +65,7 @@
 		83ED248E1E806D83005862C5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				83FF852E1E8077FD003504A0 /* HomeTimelineViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -84,13 +90,10 @@
 		83FA38811E803F0100ECE433 /* TwitterClient */ = {
 			isa = PBXGroup;
 			children = (
+				83DF5C8A1E819E9A0033F226 /* API.swift */,
 				83ED248B1E806D50005862C5 /* Model */,
 				83ED248D1E806D70005862C5 /* View */,
 				83ED248E1E806D83005862C5 /* Controller */,
-				83FA38961E80540D00ECE433 /* Tweet.swift */,
-				83FA38981E80541800ECE433 /* User.swift */,
-				83ED24891E806D1C005862C5 /* JSONParser.swift */,
-				83FF852E1E8077FD003504A0 /* HomeTimelineViewController.swift */,
 				83FA38821E803F0100ECE433 /* AppDelegate.swift */,
 				83FA38861E803F0100ECE433 /* Main.storyboard */,
 				83FA38891E803F0100ECE433 /* Assets.xcassets */,
@@ -177,6 +180,7 @@
 				83ED248A1E806D1C005862C5 /* JSONParser.swift in Sources */,
 				83FA38971E80540D00ECE433 /* Tweet.swift in Sources */,
 				83FA38831E803F0100ECE433 /* AppDelegate.swift in Sources */,
+				83DF5C8B1E819E9A0033F226 /* API.swift in Sources */,
 				83FF852F1E8077FD003504A0 /* HomeTimelineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
