@@ -8,20 +8,25 @@
 
 import UIKit
 
-class HomeTimelineViewController: UIViewController, UITableViewDataSource {
+class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
+    var tweetStorage = [Tweet]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.dataSource = self
+        self.tableView.delegate = self
+        
         
         JSONParser.tweetsFrom(data: JSONParser.sampleJSONData) { (success, tweets) in
             if(success) {
-                guard let tweets = tweets else { fatalError("Tweets came back nil") }
+                guard let tweets = tweets else {
+                    fatalError("Tweets came back nil")
+                }
                 for tweet in tweets {
-                    print(tweet.text)
+                    tweetStorage.append(tweet)
                 }
             }
         }
@@ -30,15 +35,23 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return tweetStorage.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let userName = tweetStorage[indexPath.row].user?.name
         
-        cell.textLabel?.text = "Indexpath: \(indexPath.row)"
+        cell.textLabel?.text = "\(tweetStorage[indexPath.row].text)"
         
+        if let userName = userName {
+        cell.detailTextLabel?.text = "\(userName)"
+        }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
     }
     
     
