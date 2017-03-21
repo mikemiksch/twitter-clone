@@ -118,6 +118,19 @@ class API {
         }
     }
     
+    func getUser(callback: @escaping UserCallback) {
+        if self.account == nil {
+            login(callback: { (account) in
+                if let account = account {
+                    self.account = account
+                    self.getOAuthUser(callback: { (user) in
+                        callback(user)
+                    })
+                }
+            })
+        }
+    }
+    
     func getTweets(callback: @escaping TweetsCallback) {
         if self.account == nil {
             login(callback: { (account) in
