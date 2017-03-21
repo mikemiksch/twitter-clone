@@ -9,6 +9,7 @@
 import Foundation
 
 typealias JSONParserCallback = (Bool, [Tweet]?) -> ()
+typealias JSONUserCallback = (Bool, User?) -> ()
 
 class JSONParser {
     
@@ -23,6 +24,18 @@ class JSONParser {
             
         } catch {
             fatalError("Failed to create data from tweetJSONPath")
+        }
+    }
+    
+    class func parseUser(data: Data, callback: JSONUserCallback) {
+        do {
+            if let userJSON = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String : Any] {
+                let user = User(json: userJSON)
+                callback(true, user)
+            }
+        } catch {
+            print("Error Serializing JSON")
+            callback(false, nil)
         }
     }
     
