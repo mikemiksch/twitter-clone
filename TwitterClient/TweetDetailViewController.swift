@@ -10,13 +10,22 @@ import UIKit
 
 class TweetDetailViewController: UIViewController {
 
+    @IBOutlet weak var userField: UILabel!
+    @IBOutlet weak var retweetedFlag: UILabel!
+    @IBOutlet weak var tweetBody: UILabel!
+    
+    
     var tweet : Tweet!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(self.tweet.user?.name ?? "Unknown")
-        print(self.tweet.text)
+        self.userField.text = self.tweet.user?.name ?? "Unknown"
+        self.tweetBody.text = self.tweet.text
+        if self.tweet.retweeted > 0 {
+            self.retweetedFlag.text = "Retweeted"
+        } else {
+            self.retweetedFlag.text = ""
+        }
 
     }
 }

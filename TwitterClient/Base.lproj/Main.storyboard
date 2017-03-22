@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -32,7 +33,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ohm-hN-srF" id="xCt-EG-sSY">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WoK-WQ-xE4">
@@ -101,15 +102,54 @@
                         <viewControllerLayoutGuide type="top" id="XZy-pc-wJT"/>
                         <viewControllerLayoutGuide type="bottom" id="OkC-xR-cTn"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ug5-A1-Ho3">
+                    <view key="view" contentMode="scaleToFill" id="ug5-A1-Ho3" customClass="TweetDetailView" customModule="TwitterClient" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHI-x5-EGe">
+                                <rect key="frame" x="16" y="72" width="343" height="21"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retweeted" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s6i-az-yuK">
+                                <rect key="frame" x="16" y="101" width="343" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweet Body" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azc-LN-DUR">
+                                <rect key="frame" x="16" y="123" width="343" height="262"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="262" id="xut-tu-Jk5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="azc-LN-DUR" firstAttribute="leading" secondItem="ug5-A1-Ho3" secondAttribute="leadingMargin" id="HXU-Il-ndP"/>
+                            <constraint firstItem="azc-LN-DUR" firstAttribute="trailing" secondItem="s6i-az-yuK" secondAttribute="trailing" id="JQW-YA-jPR"/>
+                            <constraint firstItem="mHI-x5-EGe" firstAttribute="top" secondItem="XZy-pc-wJT" secondAttribute="bottom" constant="8" id="OZY-OG-MrP"/>
+                            <constraint firstItem="OkC-xR-cTn" firstAttribute="top" secondItem="azc-LN-DUR" secondAttribute="bottom" constant="282" id="cIx-gf-2gr"/>
+                            <constraint firstItem="azc-LN-DUR" firstAttribute="width" secondItem="mHI-x5-EGe" secondAttribute="width" id="ep8-7A-OS0"/>
+                            <constraint firstItem="azc-LN-DUR" firstAttribute="leading" secondItem="s6i-az-yuK" secondAttribute="leading" id="lmd-nc-rKT"/>
+                            <constraint firstItem="azc-LN-DUR" firstAttribute="leading" secondItem="mHI-x5-EGe" secondAttribute="leading" id="oi6-4a-Xyb"/>
+                            <constraint firstItem="azc-LN-DUR" firstAttribute="trailing" secondItem="ug5-A1-Ho3" secondAttribute="trailingMargin" id="soF-E3-Uhn"/>
+                            <constraint firstItem="azc-LN-DUR" firstAttribute="top" secondItem="s6i-az-yuK" secondAttribute="bottom" constant="8" symbolic="YES" id="yXl-mB-Ih5"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="retweetedFlag" destination="s6i-az-yuK" id="7dJ-Yn-qtl"/>
+                        <outlet property="tweetBody" destination="azc-LN-DUR" id="dWR-cu-cbg"/>
+                        <outlet property="userField" destination="mHI-x5-EGe" id="skW-Qq-boQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rXl-IE-Vo0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1727" y="63"/>
+            <point key="canvasLocation" x="1725.5999999999999" y="62.518740629685162"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xEK-p6-5BI">
