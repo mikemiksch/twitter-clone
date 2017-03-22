@@ -20,6 +20,7 @@ class TweetDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.userField.text = self.tweet.user?.name ?? "Unknown"
+        self.tweetBody.font = UIFont.preferredFont(forTextStyle: .headline)
         self.tweetBody.text = self.tweet.text
         if self.tweet.retweeted > 0 {
             self.retweetedFlag.text = "Retweeted"
