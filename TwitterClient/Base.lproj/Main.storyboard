@@ -10,6 +10,59 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Profile View Controller-->
+        <scene sceneID="Zzy-tg-His">
+            <objects>
+                <viewController id="wX6-9U-f8Z" customClass="ProfileViewController" customModule="TwitterClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9WW-qz-ewu"/>
+                        <viewControllerLayoutGuide type="bottom" id="8ii-wC-2cP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PtC-4w-wXU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2ir-U1-yX3">
+                                <rect key="frame" x="16" y="72" width="343" height="353"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5az-G9-Lg0">
+                                <rect key="frame" x="16" y="433" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4D-nQ-463">
+                                <rect key="frame" x="16" y="462" width="343" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2ir-U1-yX3" firstAttribute="top" secondItem="9WW-qz-ewu" secondAttribute="bottom" constant="8" id="684-Ee-hoa"/>
+                            <constraint firstItem="E4D-nQ-463" firstAttribute="trailing" secondItem="PtC-4w-wXU" secondAttribute="trailingMargin" id="6fh-Ff-mfb"/>
+                            <constraint firstItem="5az-G9-Lg0" firstAttribute="top" secondItem="2ir-U1-yX3" secondAttribute="bottom" constant="8" id="7RZ-ry-AN5"/>
+                            <constraint firstItem="8ii-wC-2cP" firstAttribute="top" secondItem="E4D-nQ-463" secondAttribute="bottom" constant="157" id="Rb4-oL-IVG"/>
+                            <constraint firstItem="2ir-U1-yX3" firstAttribute="trailing" secondItem="PtC-4w-wXU" secondAttribute="trailingMargin" id="WKP-WF-t7J"/>
+                            <constraint firstItem="E4D-nQ-463" firstAttribute="leading" secondItem="PtC-4w-wXU" secondAttribute="leadingMargin" id="Yk4-D3-crn"/>
+                            <constraint firstItem="8ii-wC-2cP" firstAttribute="top" secondItem="5az-G9-Lg0" secondAttribute="bottom" constant="213" id="dID-7J-BQq"/>
+                            <constraint firstItem="2ir-U1-yX3" firstAttribute="leading" secondItem="PtC-4w-wXU" secondAttribute="leadingMargin" id="n6Q-cX-t0b"/>
+                            <constraint firstItem="5az-G9-Lg0" firstAttribute="leading" secondItem="PtC-4w-wXU" secondAttribute="leadingMargin" id="naG-5y-u6b"/>
+                            <constraint firstItem="E4D-nQ-463" firstAttribute="top" secondItem="5az-G9-Lg0" secondAttribute="bottom" constant="8" id="rg9-jp-W4f"/>
+                            <constraint firstItem="5az-G9-Lg0" firstAttribute="trailing" secondItem="PtC-4w-wXU" secondAttribute="trailingMargin" id="sxh-Um-AHv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageURL" destination="2ir-U1-yX3" id="xeb-Y3-c1s"/>
+                        <outlet property="userLocation" destination="E4D-nQ-463" id="MAB-f0-lzM"/>
+                        <outlet property="userName" destination="5az-G9-Lg0" id="LZ6-88-OTp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wi6-Hj-mKc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="968.79999999999995" y="-670.61469265367316"/>
+        </scene>
         <!--Home Timeline View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -84,7 +137,21 @@
                             <constraint firstItem="HJO-aK-9t0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="m8c-IA-Ovz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="GhN-JS-O9r"/>
+                    <navigationItem key="navigationItem" id="GhN-JS-O9r">
+                        <barButtonItem key="leftBarButtonItem" id="Gbb-VR-Q1U">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KxH-4f-7SL">
+                                <rect key="frame" x="16" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Profile"/>
+                                <connections>
+                                    <action selector="profileButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y4D-1a-UnH"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <segue destination="wX6-9U-f8Z" kind="show" identifier="showProfileSegue" id="5ZT-8u-ZQ1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="HJO-aK-9t0" id="1hM-IN-VkZ"/>
                         <outlet property="tableView" destination="hgo-kd-Vp9" id="R2Y-3n-GRv"/>

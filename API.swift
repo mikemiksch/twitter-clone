@@ -148,4 +148,11 @@ class API {
             })
         }
     }
+    
+    func getUserAccount(callback: @escaping UserCallback) {
+        if self.account != nil {
+            self.getOAuthUser(callback: callback)
+        }
+        callback(nil)
+    }
 }

@@ -18,6 +18,10 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBAction func profileButtonClicked(_ sender: UIButton) {
+        performSegue(withIdentifier: "showProfileSegue", sender: sender)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +47,17 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
                 destinationController.tweet = selectedTweet
             }
         }
+//        if segue.identifier == "showProfileSegue" {
+//                guard let destinationController = segue.destination as? ProfileViewController else { return }
+//                destinationController
+//        }
     }
-    
+
+
+
+
+
+
     func updateTimeline() {
         self.activityIndicator.startAnimating()
         API.shared.getTweets { (tweets) in
