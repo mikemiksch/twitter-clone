@@ -81,12 +81,34 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hgo-kd-Vp9">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <view key="tableHeaderView" contentMode="scaleToFill" id="0H0-yn-Yau">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="168"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Batman_BenAffleck" translatesAutoresizingMaskIntoConstraints="NO" id="rcF-7c-0jG">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="168"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.0" green="0.1989299002334029" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <rect key="contentStretch" x="0.0" y="0.050000000000000003" width="1" height="0.94999999999999996"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="rcF-7c-0jG" secondAttribute="bottom" id="6Ry-3N-ojn"/>
+                                                <constraint firstItem="rcF-7c-0jG" firstAttribute="top" secondItem="0H0-yn-Yau" secondAttribute="top" id="DFe-wM-FdV"/>
+                                                <constraint firstAttribute="trailing" secondItem="rcF-7c-0jG" secondAttribute="trailing" id="L5V-0s-ATW"/>
+                                                <constraint firstItem="rcF-7c-0jG" firstAttribute="centerX" secondItem="0H0-yn-Yau" secondAttribute="centerX" id="Pf3-Uc-h8F"/>
+                                                <constraint firstAttribute="bottom" secondItem="rcF-7c-0jG" secondAttribute="bottom" id="SLb-uS-sLO"/>
+                                                <constraint firstItem="rcF-7c-0jG" firstAttribute="leading" secondItem="0H0-yn-Yau" secondAttribute="leading" id="Sou-cH-dJD"/>
+                                                <constraint firstItem="rcF-7c-0jG" firstAttribute="top" secondItem="0H0-yn-Yau" secondAttribute="top" id="i8Q-6b-hof"/>
+                                                <constraint firstItem="rcF-7c-0jG" firstAttribute="centerY" secondItem="0H0-yn-Yau" secondAttribute="centerY" id="nMq-aj-sC9"/>
+                                            </constraints>
+                                        </view>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="ohm-hN-srF" customClass="TweetCell" customModule="TwitterClient" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                                <rect key="frame" x="0.0" y="196" width="375" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ohm-hN-srF" id="xCt-EG-sSY">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WoK-WQ-xE4">
@@ -105,7 +127,6 @@
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="tweetText" destination="WoK-WQ-xE4" id="0In-Qp-vv2"/>
-                                                    <segue destination="TXx-wH-l8L" kind="show" identifier="showDetailSegue" id="rfG-OF-bzG"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -155,11 +176,55 @@
                     <connections>
                         <outlet property="activityIndicator" destination="HJO-aK-9t0" id="1hM-IN-VkZ"/>
                         <outlet property="tableView" destination="hgo-kd-Vp9" id="R2Y-3n-GRv"/>
+                        <segue destination="TXx-wH-l8L" kind="show" identifier="TweetDetailViewController" id="Tu8-t4-nda"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="968.79999999999995" y="59.820089955022496"/>
+        </scene>
+        <!--User Timeline View Controller-->
+        <scene sceneID="sya-s8-ejz">
+            <objects>
+                <viewController id="cd1-4C-e7n" userLabel="User Timeline View Controller" customClass="UserTimelineViewController" customModule="TwitterClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GYo-iD-fQW"/>
+                        <viewControllerLayoutGuide type="bottom" id="a1t-O2-4Ui"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DoA-RA-vL8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lkc-ut-A6p">
+                                <rect key="frame" x="0.0" y="28" width="375" height="639"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="j5o-9M-0C1">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j5o-9M-0C1" id="tFb-F6-OfY">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="userTableView" destination="lkc-ut-A6p" id="79E-ng-J7K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2dS-Vt-t1r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="jJe-HC-bEb">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </objects>
+            <point key="canvasLocation" x="968.79999999999995" y="744.3778110944528"/>
         </scene>
         <!--Tweet Detail View Controller-->
         <scene sceneID="JhR-0E-f2x">
@@ -199,6 +264,14 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2WZ-fP-kQo">
+                                <rect key="frame" x="16" y="393" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="View User's Timeline"/>
+                                <connections>
+                                    <action selector="userTimelineButtonClicked:" destination="TXx-wH-l8L" eventType="touchUpInside" id="pRZ-l7-ndE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -217,6 +290,7 @@
                         <outlet property="retweetedFlag" destination="s6i-az-yuK" id="7dJ-Yn-qtl"/>
                         <outlet property="tweetBody" destination="azc-LN-DUR" id="dWR-cu-cbg"/>
                         <outlet property="userField" destination="mHI-x5-EGe" id="skW-Qq-boQ"/>
+                        <segue destination="cd1-4C-e7n" kind="show" identifier="UserTimelineViewController" id="kfc-Dx-AWz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rXl-IE-Vo0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -242,4 +316,7 @@
             <point key="canvasLocation" x="29.600000000000001" y="59.820089955022496"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Batman_BenAffleck" width="129" height="125"/>
+    </resources>
 </document>

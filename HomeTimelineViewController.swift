@@ -27,18 +27,24 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
         super.viewDidLoad()
         
         self.navigationItem.title = "My Timeline"
-        self.tableView.estimatedRowHeight = 100
+        
+        let tweetNib = UINib(nibName: "TweetNibCell", bundle: nil)
+        
+        self.tableView.register(tweetNib, forCellReuseIdentifier: TweetNibCell.identifier)
+        self.tableView.estimatedRowHeight = 50
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
         self.tableView.dataSource = self
-//        self.tableView.delegate = self
+        self.tableView.delegate = self
+        
+        
         updateTimeline()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
     
-        if segue.identifier == "showDetailSegue" {
+        if segue.identifier == TweetDetailViewController.identifier {
             if let selectedIndex = self.tableView.indexPathForSelectedRow?.row {
                 let selectedTweet = self.tweetStorage[selectedIndex]
                 
@@ -47,15 +53,7 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
                 destinationController.tweet = selectedTweet
             }
         }
-//        if segue.identifier == "showProfileSegue" {
-//                guard let destinationController = segue.destination as? ProfileViewController else { return }
-//                destinationController
-//        }
     }
-
-
-
-
 
 
     func updateTimeline() {
@@ -73,24 +71,20 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let userName = tweetStorage[indexPath.row].user?.name
+        let cell = tableView.dequeueReusableCell(withIdentifier: TweetNibCell.identifier, for: indexPath) as! TweetNibCell
         
-        if let cell = cell as? TweetCell {
-            cell.tweetText.text = tweetStorage[indexPath.row].text
-        }
-//        
-//        cell.textLabel?.text = "\(tweetStorage[indexPath.row].text)"
-//        
+        let tweet = self.tweetStorage[indexPath.row]
+        cell.tweet = tweet
+        
+        let userName = tweetStorage[indexPath.row].user?.name
         if let userName = userName {
         cell.detailTextLabel?.text = "\(userName)"
         }
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print(indexPath.row)
-//    }
-//    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: TweetDetailViewController.identifier, sender: nil)
+    }
     
 }

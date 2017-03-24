@@ -13,6 +13,9 @@ class TweetDetailViewController: UIViewController {
     @IBOutlet weak var userField: UILabel!
     @IBOutlet weak var retweetedFlag: UILabel!
     @IBOutlet weak var tweetBody: UILabel!
+    @IBAction func userTimelineButtonClicked(_ sender: Any) {
+        performSegue(withIdentifier: UserTimelineViewController.identifier, sender: sender)
+    }
     
     
     var tweet : Tweet!
@@ -27,6 +30,5 @@ class TweetDetailViewController: UIViewController {
         } else {
             self.retweetedFlag.text = ""
         }
-
     }
 }
