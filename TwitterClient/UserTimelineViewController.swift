@@ -10,8 +10,12 @@ import UIKit
 
 class UserTimelineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var tweet : Tweet!
-    var tweets = [Tweet]()
+    var tweets = [Tweet]() {
+        didSet {
+            self.userTableView.reloadData()
+        }
+    }
+    var selectedUser : User!
     
     @IBOutlet weak var userTableView: UITableView!
     
@@ -26,13 +30,11 @@ class UserTimelineViewController: UIViewController, UITableViewDataSource, UITab
         
         self.userTableView.dataSource = self
         self.userTableView.delegate = self
-
-        if let user = self.tweet.user?.screenName {
-            print("user screenName is: \(user)")
-            API.shared.getTweetsFor(user) { (tweets) in
+        print("user screenName is: \(selectedUser)")
+        API.shared.getTweetsFor(selectedUser.screenName) { (tweets) in
+             OperationQueue.main.addOperation {
                 if let tweets = tweets {
                     self.tweets = tweets
-            
                 }
             }
         }

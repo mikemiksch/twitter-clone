@@ -31,4 +31,15 @@ class TweetDetailViewController: UIViewController {
             self.retweetedFlag.text = ""
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if segue.identifier == UserTimelineViewController.identifier {
+            if let selectedUser = self.tweet.user {
+                guard let destinationController = segue.destination as? UserTimelineViewController else { return }
+                destinationController.selectedUser = selectedUser
+            }
+        }
+    }
 }
