@@ -10,12 +10,14 @@ import UIKit
 
 class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+//    var user : User!
     var tweetStorage = [Tweet]() {
         didSet {
             self.tableView.reloadData()
         }
     }
     
+    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBAction func profileButtonClicked(_ sender: UIButton) {
@@ -25,7 +27,6 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationItem.title = "My Timeline"
         
         let tweetNib = UINib(nibName: "TweetNibCell", bundle: nil)
@@ -36,7 +37,6 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        
         
         updateTimeline()
     }
@@ -62,6 +62,13 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
             OperationQueue.main.addOperation {
                 self.tweetStorage = tweets ?? []
                 self.activityIndicator.stopAnimating()
+                API.shared.getUserAccount { (user) in
+                    OperationQueue.main.addOperation {
+                        if let userScreenName = user?.screenName {
+                            self.usernameLabel.text = "@\(userScreenName)"
+                        }
+                    }
+                }
             }
         }
     }

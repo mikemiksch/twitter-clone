@@ -32,3 +32,25 @@ extension UIResponder {
         return String(describing: self)
     }
 }
+
+extension UIImage
+{
+    func resized(size: CGSize) -> UIImage?
+    {
+        UIGraphicsBeginImageContext(size)
+        
+        let newFrame = CGRect(x: 0.0,
+                              y: 0.0,
+                              width: size.width,
+                              height: size.height)
+        
+        self.draw(in: newFrame)
+        
+        defer { //This line will execute immediately after the return statement.
+            
+            UIGraphicsEndImageContext()
+        }
+        
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
+}

@@ -23,9 +23,11 @@ class ProfileViewController: UIViewController {
                 self.user = user
                 self.userName.text = self.user?.name
                 self.userLocation.text = self.user?.location
- //               UIImage.fetchImageWith(user?.profileImageURL), callback: { (image) in
-   //                 self.imageURL.image = image
- //               })
+                if let profileImageURL = self.user?.profileImageURL {
+                    UIImage.fetchImageWith(profileImageURL) { (image) in
+                        self.imageURL.image = image
+                    }
+                }
 
             }
             

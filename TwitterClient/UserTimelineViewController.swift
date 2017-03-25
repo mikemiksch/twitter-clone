@@ -21,7 +21,6 @@ class UserTimelineViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Got this far!")
         let tweetNib = UINib(nibName: "TweetNibCell", bundle: nil)
 
         self.userTableView.register(tweetNib, forCellReuseIdentifier: TweetNibCell.identifier)

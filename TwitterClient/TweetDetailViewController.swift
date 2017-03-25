@@ -10,8 +10,8 @@ import UIKit
 
 class TweetDetailViewController: UIViewController {
 
+    @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userField: UILabel!
-    @IBOutlet weak var retweetedFlag: UILabel!
     @IBOutlet weak var tweetBody: UILabel!
     @IBAction func userTimelineButtonClicked(_ sender: Any) {
         performSegue(withIdentifier: UserTimelineViewController.identifier, sender: sender)
@@ -25,10 +25,10 @@ class TweetDetailViewController: UIViewController {
         self.userField.text = self.tweet.user?.name ?? "Unknown"
         self.tweetBody.font = UIFont.preferredFont(forTextStyle: .headline)
         self.tweetBody.text = self.tweet.text
-        if self.tweet.retweeted > 0 {
-            self.retweetedFlag.text = "Retweeted"
-        } else {
-            self.retweetedFlag.text = ""
+        if let profileImageURL = self.tweet.user?.profileImageURL {
+            UIImage.fetchImageWith(profileImageURL) { (image) in
+                self.userImage.image = image
+            }
         }
     }
     
